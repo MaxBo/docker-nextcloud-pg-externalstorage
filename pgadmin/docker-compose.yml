@@ -1,0 +1,35 @@
+version: '2'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+
+  postgres:
+    restart: unless-stopped
+    image: sameersbn/postgresql:9.6-2
+    environment:
+      - DB_USER=nextcloud
+      - DB_PASS=
+      - DB_NAME=nextcloud_db
+    volumes:
+      - /data/nextcloud/pglog:/var/log/postgresql
+      - /data/nextcloud/pgdata:/var/lib/postgresql
+      - /data/nextcloud/pgcerts:/etc/postgresql/certs
+    ports:
+      - "25430:5432"
+
+
+  pgadmin4:
+    image: thajeztah/pgadmin4
+    user: 'postgres:postgres'
+    ports:
+      - "5051:5050"
+    volumes:
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+      - /data/nextcloud/pgadmin4:/pgadmin
+    restart: unless-stopped
+    depends_on:
+      - postgres
