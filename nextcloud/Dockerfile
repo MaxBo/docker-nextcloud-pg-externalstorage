@@ -1,4 +1,4 @@
-FROM sameersbn/nextcloud:latest
+FROM quay.io/rootlogin/nextcloud:latest
 MAINTAINER Max Bohnet <github.com/MaxBo>
 
 RUN apt-get update \

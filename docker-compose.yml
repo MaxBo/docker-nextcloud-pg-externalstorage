@@ -7,7 +7,7 @@ networks:
 services:
   nextcloud:
     restart: unless-stopped
-    image: quay.io/rootlogin/nextcloud:latest
+    image: maxboh/docker-nextcloud-pg-externalstorage
     mem_limit: 1G
     volumes:
       - /data/nextcloud/nc:/data
