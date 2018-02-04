@@ -10,5 +10,5 @@ RUN apk add --update acl \
     && chmod -R 750 /var/local_workspace
 	
 # remove X-Frame-Options from nginx configuration, which is seen as a security risk
-RUN sed -i '/add_header X-Frame-Options SAMEORIGIN;/d' ./etc/nginx/nginx.conf
+RUN sed -i '/add_header X-Frame-Options SAMEORIGIN;/d' /etc/nginx/nginx.conf
 
