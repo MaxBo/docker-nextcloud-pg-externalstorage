@@ -1,4 +1,4 @@
-FROM quay.io/rootlogin/nextcloud:latest
+FROM chriscowley/docker-nextcloud:latest
 MAINTAINER Max Bohnet <github.com/MaxBo>
 
 # install Access Control List acl and set default read and write permissions for the nextcloud user
